@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Geometry Package &#8212; sage-flatsurf 0.3 documentation</title>
+    <title>The Geometry Package &#8212; sage-flatsurf 0.4.1 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="walk_through.html" title="A tour of sage-flatsurf"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">sage-flatsurf 0.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">sage-flatsurf 0.4.1 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">The Geometry Package</a></li> 
       </ul>
     </div>  
@@ -681,7 +681,7 @@ have marked regular points</p></li>
 <dl class="py attribute">
 <dt id="flatsurf.geometry.polygon.EquiangularPolygons.lengths_polytope">
 <code class="sig-name descname"><span class="pre">lengths_polytope</span></code><a class="reference internal" href="_modules/flatsurf/geometry/polygon.html#EquiangularPolygons.lengths_polytope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.polygon.EquiangularPolygons.lengths_polytope" title="Permalink to this definition">¶</a></dt>
-<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 2190)</p>
+<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 2211)</p>
 <p>Return the polytope parametrizing the admissible vectors data.</p>
 <p>This polytope parametrizes the tangent space to the set of these
 equiangular polygons. Be careful that even though the lengths are
@@ -697,7 +697,7 @@ A 2-dimensional polyhedron in (Number Field in c with defining polynomial x^2 - 
 <dl class="py attribute">
 <dt id="flatsurf.geometry.polygon.EquiangularPolygons.module">
 <code class="sig-name descname"><span class="pre">module</span></code><a class="reference internal" href="_modules/flatsurf/geometry/polygon.html#EquiangularPolygons.module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.polygon.EquiangularPolygons.module" title="Permalink to this definition">¶</a></dt>
-<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 2130)</p>
+<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 2151)</p>
 <p>Return the free module of rank 2 in which these polygons embed.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sage: from flatsurf import EquiangularPolygons
@@ -755,7 +755,7 @@ Vector space of dimension 2 over Number Field in c with defining polynomial x^2 
 <dl class="py attribute">
 <dt id="flatsurf.geometry.polygon.EquiangularPolygons.vector_space">
 <code class="sig-name descname"><span class="pre">vector_space</span></code><a class="reference internal" href="_modules/flatsurf/geometry/polygon.html#EquiangularPolygons.vector_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.polygon.EquiangularPolygons.vector_space" title="Permalink to this definition">¶</a></dt>
-<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 2145)</p>
+<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 2166)</p>
 <p>Return the vector space of dimension 2 in which these polygons embed.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sage: from flatsurf import EquiangularPolygons
@@ -788,7 +788,7 @@ Vector space of dimension 2 over Number Field in c with defining polynomial x^2 
 <span class="mi">3</span><span class="o">/</span><span class="mi">8</span>
 
 <span class="n">sage</span><span class="p">:</span> <span class="n">T</span> <span class="o">=</span> <span class="n">polygons</span><span class="p">(</span><span class="n">vertices</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
-<span class="n">sage</span><span class="p">:</span> <span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">numerical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="n">sage</span><span class="p">:</span> <span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">numerical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>  <span class="c1"># abs tol 1e-13</span>
 <span class="p">[</span><span class="mf">0.16737532973071603</span><span class="p">,</span> <span class="mf">0.22741638234956674</span><span class="p">,</span> <span class="mf">0.10520828791971722</span><span class="p">]</span>
 <span class="n">sage</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">numerical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>   <span class="c1"># abs tol 1e-13</span>
 <span class="mf">0.5</span>
@@ -1077,7 +1077,7 @@ the Sah-Arnoux-Fathi invariant of the horizontal flow and the <cite>xy</cite>-ma
 <dl class="py attribute">
 <dt id="flatsurf.geometry.polygon.Polygon.module">
 <code class="sig-name descname"><span class="pre">module</span></code><a class="reference internal" href="_modules/flatsurf/geometry/polygon.html#Polygon.module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.polygon.Polygon.module" title="Permalink to this definition">¶</a></dt>
-<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 860)</p>
+<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 881)</p>
 <p>Return the free module of rank 2 in which this polygon embeds.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">flatsurf</span> <span class="kn">import</span> <span class="n">polygons</span>
@@ -1128,7 +1128,7 @@ form a triangulation.</p>
 <dl class="py attribute">
 <dt id="flatsurf.geometry.polygon.Polygon.vector_space">
 <code class="sig-name descname"><span class="pre">vector_space</span></code><a class="reference internal" href="_modules/flatsurf/geometry/polygon.html#Polygon.vector_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.polygon.Polygon.vector_space" title="Permalink to this definition">¶</a></dt>
-<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 875)</p>
+<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 896)</p>
 <p>Return the vector space of dimension 2 in which this polygon embeds.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">flatsurf</span> <span class="kn">import</span> <span class="n">polygons</span>
@@ -1330,7 +1330,7 @@ in a bigger ring, the <code class="docutils literal notranslate"><span class="pr
 <dl class="py attribute">
 <dt id="flatsurf.geometry.polygon.Polygons.module">
 <code class="sig-name descname"><span class="pre">module</span></code><a class="reference internal" href="_modules/flatsurf/geometry/polygon.html#Polygons.module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.polygon.Polygons.module" title="Permalink to this definition">¶</a></dt>
-<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 1687)</p>
+<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 1708)</p>
 <p>Return the free module of rank 2 in which these polygons embed.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">flatsurf</span> <span class="kn">import</span> <span class="n">Polygons</span>
@@ -1344,7 +1344,7 @@ in a bigger ring, the <code class="docutils literal notranslate"><span class="pr
 <dl class="py attribute">
 <dt id="flatsurf.geometry.polygon.Polygons.vector_space">
 <code class="sig-name descname"><span class="pre">vector_space</span></code><a class="reference internal" href="_modules/flatsurf/geometry/polygon.html#Polygons.vector_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.polygon.Polygons.vector_space" title="Permalink to this definition">¶</a></dt>
-<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 1702)</p>
+<dd><p>File: /home/runner/work/sage-flatsurf/sage-flatsurf/flatsurf/geometry/polygon.py (starting at line 1723)</p>
 <p>Return the vector space of dimension 2 in which these polygons embed.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">flatsurf</span> <span class="kn">import</span> <span class="n">Polygons</span>
@@ -1732,7 +1732,6 @@ enumerated in counter-clockwise order.</p>
 <span class="n">sage</span><span class="p">:</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">poly</span><span class="p">)):</span>
 <span class="o">....</span><span class="p">:</span>     <span class="n">_</span> <span class="o">=</span> <span class="n">triangulate</span><span class="p">(</span><span class="n">poly</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span> <span class="o">+</span> <span class="n">poly</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span>
 
-
 <span class="n">sage</span><span class="p">:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">polygen</span><span class="p">(</span><span class="n">QQ</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">p</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">r</span> <span class="o">=</span> <span class="n">AA</span><span class="o">.</span><span class="n">polynomial_root</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">RIF</span><span class="p">(</span><span class="mf">1.17</span><span class="p">,</span><span class="mf">1.18</span><span class="p">))</span>
@@ -1751,6 +1750,23 @@ enumerated in counter-clockwise order.</p>
 <span class="n">sage</span><span class="p">:</span> <span class="n">poly</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">poly</span><span class="p">))</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">triangulate</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
 <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>
+
+<span class="n">sage</span><span class="p">:</span> <span class="n">z</span> <span class="o">=</span> <span class="n">QQbar</span><span class="o">.</span><span class="n">zeta</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">pts</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">z</span><span class="o">**</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">24</span><span class="p">)]</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">pts</span> <span class="o">=</span> <span class="p">[</span><span class="n">vector</span><span class="p">(</span><span class="n">AA</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">imag</span><span class="p">()))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">]</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">triangulate</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+<span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>TESTS:</p>
+<p>This is <a class="reference external" href="https://github.com/flatsurf/sage-flatsurf/issues/87">https://github.com/flatsurf/sage-flatsurf/issues/87</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">flatsurf.geometry.polygon</span> <span class="kn">import</span> <span class="n">triangulate</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">polygen</span><span class="p">(</span><span class="n">QQ</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">K</span><span class="o">.&lt;</span><span class="n">c</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">NumberField</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="n">embedding</span><span class="o">=</span><span class="n">AA</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">sqrt</span><span class="p">())</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">pts</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">pts</span> <span class="o">=</span> <span class="p">[</span><span class="n">vector</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">]</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">triangulate</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+<span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -2599,6 +2615,24 @@ vertices of angle 2π.</p>
 <span class="n">H_8</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>TESTS:</p>
+<p>Verify that <a class="reference external" href="https://github.com/flatsurf/flatsurf/issues/263">https://github.com/flatsurf/flatsurf/issues/263</a> has been resolved:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">flatsurf</span> <span class="kn">import</span> <span class="n">EquiangularPolygons</span><span class="p">,</span> <span class="n">similarity_surfaces</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">E</span> <span class="o">=</span> <span class="n">EquiangularPolygons</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">P</span> <span class="o">=</span> <span class="n">E</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">B</span> <span class="o">=</span> <span class="n">similarity_surfaces</span><span class="o">.</span><span class="n">billiard</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">rational</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">S</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">minimal_cover</span><span class="p">(</span><span class="n">cover_type</span><span class="o">=</span><span class="s2">&quot;translation&quot;</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">S</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">erase_marked_points</span><span class="p">()</span> <span class="c1"># optional: pyflatsurf</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">flatsurf</span> <span class="kn">import</span> <span class="n">EquiangularPolygons</span><span class="p">,</span> <span class="n">similarity_surfaces</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">E</span> <span class="o">=</span> <span class="n">EquiangularPolygons</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">P</span> <span class="o">=</span> <span class="n">E</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">B</span> <span class="o">=</span> <span class="n">similarity_surfaces</span><span class="o">.</span><span class="n">billiard</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">rational</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">S_mp</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">minimal_cover</span><span class="p">(</span><span class="n">cover_type</span><span class="o">=</span><span class="s2">&quot;translation&quot;</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">S</span> <span class="o">=</span> <span class="n">S_mp</span><span class="o">.</span><span class="n">erase_marked_points</span><span class="p">()</span> <span class="c1"># optional: pyflatsurf</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -3050,6 +3084,8 @@ sage: len(sc_list)
 <p>This makes what is currently vertex v of this polygon vertex 0. In other words,
 what is currently vertex (or edge) e will now become vertex (e-v)%n where
 n is the number of sides of the polygon.</p>
+<p>For the updated polygons, the polygons will be translated so that vertex
+0 is the origin.</p>
 <p>EXAMPLES:</p>
 <p>Example with polygon glued to another polygon:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">flatsurf</span> <span class="kn">import</span> <span class="o">*</span>
@@ -3696,9 +3732,10 @@ linear in limit.</p></li>
 <dl class="py method">
 <dt id="flatsurf.geometry.translation_surface.TranslationSurface.standardize_polygons">
 <code class="sig-name descname"><span class="pre">standardize_polygons</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flatsurf/geometry/translation_surface.html#TranslationSurface.standardize_polygons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.translation_surface.TranslationSurface.standardize_polygons" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replaces each polygon with a combinatorially rotated polygons (i.e., with
-reindexed vertices) so that all vertices of the polygon lie in the upper half plane,
-or in the x-axis with non-negative x-coordinate.</p>
+<dd><p>Replaces each polygon with a polygon with a new polygon which differs by translation
+and reindexing. The new polygon will have the property that vertex zero is the origin,
+and all vertices lie either in the upper half plane, or on the x-axis with non-negative
+x-coordinate.</p>
 <p>This is done to the current surface if in_place=True. A mutable copy is created and returned
 if in_place=False (as default).</p>
 <p>EXAMPLES:</p>
@@ -3716,6 +3753,20 @@ if in_place=False (as default).</p>
 <span class="n">sage</span><span class="p">:</span> <span class="n">TestSuite</span><span class="p">(</span><span class="n">ss</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
+<dl class="simple">
+<dt>Make sure first vertex is sent to origin::</dt><dd><p>sage: from flatsurf import *
+sage: P = ConvexPolygons(QQ)
+sage: p = P(vertices = ([(1,1),(2,1),(2,2),(1,2)]))
+sage: s = Surface_list(QQ)
+sage: s.add_polygon(p)
+0
+sage: s.change_polygon_gluings(0, [(0,2),(0,3),(0,0),(0,1)])
+sage: s.change_base_label(0)
+sage: ts = TranslationSurface(s)
+sage: ts.standardize_polygons().polygon(0)
+Polygon: (0, 0), (1, 0), (1, 1), (0, 1)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -3891,6 +3942,8 @@ True
 <span class="o">....</span><span class="p">:</span>     <span class="n">c</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">real</span><span class="p">()</span>
 <span class="o">....</span><span class="p">:</span>     <span class="n">s</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">imag</span><span class="p">()</span>
 <span class="o">....</span><span class="p">:</span>     <span class="k">return</span> <span class="n">matrix</span><span class="p">(</span><span class="n">AA</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="n">c</span><span class="p">,</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">c</span><span class="p">])</span>
+<span class="n">sage</span><span class="p">:</span> <span class="p">[</span><span class="n">rotation_matrix_angle</span><span class="p">(</span><span class="n">rot_matrix</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)]</span>
+<span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">sage</span><span class="p">:</span> <span class="p">[</span><span class="n">rotation_matrix_angle</span><span class="p">(</span><span class="n">rot_matrix</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)]</span>
 <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">sage</span><span class="p">:</span> <span class="p">[</span><span class="n">rotation_matrix_angle</span><span class="p">(</span><span class="n">rot_matrix</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)]</span>
@@ -4130,7 +4183,7 @@ and (ax+by+s,bx-ay+t) if sign=-1</p>
 <dl class="py method">
 <dt id="flatsurf.geometry.similarity.SimilarityGroup.an_element">
 <code class="sig-name descname"><span class="pre">an_element</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flatsurf/geometry/similarity.html#SimilarityGroup.an_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.similarity.SimilarityGroup.an_element" title="Permalink to this definition">¶</a></dt>
-<dd><p>File: sage/structure/parent.pyx (starting at line 2600)</p>
+<dd><p>File: sage/structure/parent.pyx (starting at line 2601)</p>
 <p>Returns a (preferably typical) element of this parent.</p>
 <p>This is used both for illustration and testing purposes. If
 the set <code class="docutils literal notranslate"><span class="pre">self</span></code> is empty, <a class="reference internal" href="#flatsurf.geometry.similarity.SimilarityGroup.an_element" title="flatsurf.geometry.similarity.SimilarityGroup.an_element"><code class="xref py py-meth docutils literal notranslate"><span class="pre">an_element()</span></code></a> raises the
@@ -4364,7 +4417,7 @@ The length of the vector matches the length of the indexed edge.</p>
 
 <dl class="py method">
 <dt id="flatsurf.geometry.tangent_bundle.SimilaritySurfaceTangentVector.clockwise_to">
-<code class="sig-name descname"><span class="pre">clockwise_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flatsurf/geometry/tangent_bundle.html#SimilaritySurfaceTangentVector.clockwise_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.tangent_bundle.SimilaritySurfaceTangentVector.clockwise_to" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">clockwise_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flatsurf/geometry/tangent_bundle.html#SimilaritySurfaceTangentVector.clockwise_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.tangent_bundle.SimilaritySurfaceTangentVector.clockwise_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the new tangent vector obtained by rotating this one in the clockwise
 direction until the vector is parallel to w, and scaling so that the length matches
 that of w.</p>
@@ -4375,6 +4428,10 @@ that of w.</p>
 so we impose a limit (representing the maximal number of polygons
 that must be rotated through.) This is the variable rotate_limit
 in this package.</p>
+<p>If code is True, we compute the sequences of numbers associated to edges
+crossed as a list. We return a pair consisting of the newly computing
+tangent vector an this code. This is currently only implemented when
+based at a singularity.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">flatsurf</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">s</span><span class="o">=</span><span class="n">translation_surfaces</span><span class="o">.</span><span class="n">regular_octagon</span><span class="p">()</span>
@@ -4383,13 +4440,15 @@ in this package.</p>
 <span class="n">SimilaritySurfaceTangentVector</span> <span class="ow">in</span> <span class="n">polygon</span> <span class="mi">0</span> <span class="n">based</span> <span class="n">at</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">with</span> <span class="n">vector</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">clockwise_to</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">SimilaritySurfaceTangentVector</span> <span class="ow">in</span> <span class="n">polygon</span> <span class="mi">0</span> <span class="n">based</span> <span class="n">at</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="k">with</span> <span class="n">vector</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">clockwise_to</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">(</span><span class="n">SimilaritySurfaceTangentVector</span> <span class="ow">in</span> <span class="n">polygon</span> <span class="mi">0</span> <span class="n">based</span> <span class="n">at</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="k">with</span> <span class="n">vector</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt id="flatsurf.geometry.tangent_bundle.SimilaritySurfaceTangentVector.counterclockwise_to">
-<code class="sig-name descname"><span class="pre">counterclockwise_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flatsurf/geometry/tangent_bundle.html#SimilaritySurfaceTangentVector.counterclockwise_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.tangent_bundle.SimilaritySurfaceTangentVector.counterclockwise_to" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">counterclockwise_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/flatsurf/geometry/tangent_bundle.html#SimilaritySurfaceTangentVector.counterclockwise_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flatsurf.geometry.tangent_bundle.SimilaritySurfaceTangentVector.counterclockwise_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the new tangent vector obtained by rotating this one in the counterclockwise
 direction until the vector is parallel to w, and scaling so that the length matches
 that of w.</p>
@@ -4400,6 +4459,10 @@ that of w.</p>
 so we impose a limit (representing the maximal number of polygons
 that must be rotated through.) This is the variable rotate_limit
 in this package.</p>
+<p>If code is True, we compute the sequences of numbers associated to edges
+crossed as a list. We return a pair consisting of the newly computing
+tangent vector an this code. This is currently only implemented when
+based at a singularity.</p>
 <p>EXAMPLES:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">flatsurf</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">s</span><span class="o">=</span><span class="n">translation_surfaces</span><span class="o">.</span><span class="n">regular_octagon</span><span class="p">()</span>
@@ -4408,6 +4471,8 @@ in this package.</p>
 <span class="n">SimilaritySurfaceTangentVector</span> <span class="ow">in</span> <span class="n">polygon</span> <span class="mi">0</span> <span class="n">based</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">with</span> <span class="n">vector</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">sage</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">counterclockwise_to</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">SimilaritySurfaceTangentVector</span> <span class="ow">in</span> <span class="n">polygon</span> <span class="mi">0</span> <span class="n">based</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">with</span> <span class="n">vector</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">counterclockwise_to</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">(</span><span class="n">SimilaritySurfaceTangentVector</span> <span class="ow">in</span> <span class="n">polygon</span> <span class="mi">0</span> <span class="n">based</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">with</span> <span class="n">vector</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -5714,7 +5779,7 @@ represents and edge and w represents the non-zero weight assigned.</p>
         <li class="right" >
           <a href="walk_through.html" title="A tour of sage-flatsurf"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">sage-flatsurf 0.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">sage-flatsurf 0.4.1 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">The Geometry Package</a></li> 
       </ul>
     </div>
