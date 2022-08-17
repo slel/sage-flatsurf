@@ -1,22 +1,26 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>flatsurf.geometry.similarity_surface &#8212; sage-flatsurf 0.4.1 documentation</title>
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <title>flatsurf.geometry.similarity_surface &#8212; sage-flatsurf 0.4.7 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -30,7 +34,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">sage-flatsurf 0.4.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">sage-flatsurf 0.4.7 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">flatsurf.geometry.similarity_surface</a></li> 
       </ul>
@@ -50,7 +54,7 @@
 <span class="c1">#  This file is part of sage-flatsurf.</span>
 <span class="c1">#</span>
 <span class="c1">#        Copyright (C) 2016-2020 Vincent Delecroix</span>
-<span class="c1">#                      2020      Julian Rüth</span>
+<span class="c1">#                      2020-2022 Julian Rüth</span>
 <span class="c1">#</span>
 <span class="c1">#  sage-flatsurf is free software: you can redistribute it and/or modify</span>
 <span class="c1">#  it under the terms of the GNU General Public License as published by</span>
@@ -67,10 +71,8 @@
 <span class="c1">#*********************************************************************</span>
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">division</span>
-<span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="nb">range</span><span class="p">,</span> <span class="nb">map</span><span class="p">,</span> <span class="nb">filter</span><span class="p">,</span> <span class="nb">zip</span>
+<span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="nb">range</span>
 <span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">iteritems</span>
-
-<span class="kn">import</span> <span class="nn">itertools</span>
 
 <span class="kn">from</span> <span class="nn">sage.misc.cachefunc</span> <span class="kn">import</span> <span class="n">cached_method</span>
 <span class="kn">from</span> <span class="nn">sage.misc.sage_unittest</span> <span class="kn">import</span> <span class="n">TestSuite</span>
@@ -79,27 +81,17 @@
 
 <span class="kn">from</span> <span class="nn">sage.rings.infinity</span> <span class="kn">import</span> <span class="n">Infinity</span>
 
-<span class="kn">from</span> <span class="nn">sage.rings.all</span> <span class="kn">import</span> <span class="n">ZZ</span><span class="p">,</span> <span class="n">QQ</span><span class="p">,</span> <span class="n">AA</span><span class="p">,</span> <span class="n">RIF</span><span class="p">,</span> <span class="n">RR</span><span class="p">,</span> <span class="n">NumberField</span>
+<span class="kn">from</span> <span class="nn">sage.rings.all</span> <span class="kn">import</span> <span class="n">ZZ</span><span class="p">,</span> <span class="n">QQ</span><span class="p">,</span> <span class="n">AA</span><span class="p">,</span> <span class="n">NumberField</span>
 
 <span class="kn">from</span> <span class="nn">sage.modules.free_module_element</span> <span class="kn">import</span> <span class="n">vector</span>
 
-<span class="kn">from</span> <span class="nn">sage.matrix.constructor</span> <span class="kn">import</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">identity_matrix</span>
-<span class="kn">from</span> <span class="nn">sage.modules.free_module</span> <span class="kn">import</span> <span class="n">VectorSpace</span>
-
-<span class="kn">from</span> <span class="nn">sage.all</span> <span class="kn">import</span> <span class="n">FreeModule</span>
-
-<span class="kn">from</span> <span class="nn">.matrix_2x2</span> <span class="kn">import</span> <span class="p">(</span><span class="n">is_similarity</span><span class="p">,</span>
-                    <span class="n">homothety_rotation_decomposition</span><span class="p">,</span>
-                    <span class="n">similarity_from_vectors</span><span class="p">,</span>
-                    <span class="n">rotation_matrix_angle</span><span class="p">,</span>
-                    <span class="n">is_cosine_sine_of_rational</span><span class="p">)</span>
-
 <span class="kn">from</span> <span class="nn">.similarity</span> <span class="kn">import</span> <span class="n">SimilarityGroup</span>
-<span class="kn">from</span> <span class="nn">.polygon</span> <span class="kn">import</span> <span class="n">ConvexPolygons</span><span class="p">,</span> <span class="n">wedge_product</span><span class="p">,</span> <span class="n">triangulate</span><span class="p">,</span> <span class="n">build_faces</span>
+<span class="kn">from</span> <span class="nn">.polygon</span> <span class="kn">import</span> <span class="n">ConvexPolygons</span><span class="p">,</span> <span class="n">wedge_product</span>
 
 <span class="kn">from</span> <span class="nn">.surface</span> <span class="kn">import</span> <span class="n">Surface</span><span class="p">,</span> <span class="n">Surface_dict</span><span class="p">,</span> <span class="n">Surface_list</span><span class="p">,</span> <span class="n">LabelComparator</span>
 <span class="kn">from</span> <span class="nn">.surface_objects</span> <span class="kn">import</span> <span class="n">Singularity</span><span class="p">,</span> <span class="n">SaddleConnection</span><span class="p">,</span> <span class="n">SurfacePoint</span>
 <span class="kn">from</span> <span class="nn">.circle</span> <span class="kn">import</span> <span class="n">Circle</span>
+<span class="kn">from</span> <span class="nn">.matrix_2x2</span> <span class="kn">import</span> <span class="n">similarity_from_vectors</span>
 
 <span class="n">ZZ_1</span> <span class="o">=</span> <span class="n">ZZ</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
 <span class="n">ZZ_2</span> <span class="o">=</span> <span class="n">ZZ_1</span> <span class="o">+</span> <span class="n">ZZ_1</span>
@@ -206,14 +198,19 @@
 <span class="sd">            sage: SimilaritySurface(3)</span>
 <span class="sd">            Traceback (most recent call last):</span>
 <span class="sd">            ...</span>
-<span class="sd">            TypeError: invalid argument surface=3 to build a half-translation surface</span>
+<span class="sd">            TypeError: invalid argument surface=3 to build a similarity surface</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">SimilaritySurface</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">underlying_surface</span><span class="p">()</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="n">Surface</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">surface</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;invalid argument surface=</span><span class="si">{}</span><span class="s2"> to build a half-translation surface&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">surface</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;invalid argument surface=</span><span class="si">{}</span><span class="s2"> to build a similarity surface&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">surface</span><span class="p">))</span>
+
+    <span class="nd">@cached_method</span>
+    <span class="k">def</span> <span class="nf">_matrix_space</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">sage.matrix.matrix_space</span> <span class="kn">import</span> <span class="n">MatrixSpace</span>
+        <span class="k">return</span> <span class="n">MatrixSpace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_ring</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SimilaritySurface.underlying_surface"><a class="viewcode-back" href="../../../geometry.html#flatsurf.geometry.similarity_surface.SimilaritySurface.underlying_surface">[docs]</a>    <span class="k">def</span> <span class="nf">underlying_surface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
@@ -443,7 +440,8 @@
 
         <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> built from </span><span class="si">{}</span><span class="s2"> polygon</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 
-<div class="viewcode-block" id="SimilaritySurface.edge_matrix"><a class="viewcode-back" href="../../../geometry.html#flatsurf.geometry.similarity_surface.SimilaritySurface.edge_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">edge_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SimilaritySurface.edge_matrix"><a class="viewcode-back" href="../../../geometry.html#flatsurf.geometry.similarity_surface.SimilaritySurface.edge_matrix">[docs]</a>    <span class="nd">@cached_method</span>
+    <span class="k">def</span> <span class="nf">edge_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the 2x2 matrix representing a similarity which when applied to the polygon with label `p`</span>
 <span class="sd">        makes it so the edge `e` can be glued to its opposite edge by translation.</span>
@@ -468,13 +466,15 @@
 <span class="sd">            True</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">e</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">p</span><span class="p">,</span><span class="n">e</span> <span class="o">=</span> <span class="n">p</span>
+            <span class="kn">import</span> <span class="nn">warning</span>
+            <span class="n">warning</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;edge_matrix will now only take two arguments&#39;</span><span class="p">)</span>
+            <span class="n">p</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">p</span>
         <span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polygon</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-        <span class="n">pp</span><span class="p">,</span><span class="n">ee</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opposite_edge</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+        <span class="n">pp</span><span class="p">,</span> <span class="n">ee</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opposite_edge</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
         <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polygon</span><span class="p">(</span><span class="n">pp</span><span class="p">)</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="n">ee</span><span class="p">)</span>
 
         <span class="c1"># be careful, because of the orientation, it is -v and not v</span>
-        <span class="k">return</span> <span class="n">similarity_from_vectors</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="o">-</span><span class="n">v</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">similarity_from_vectors</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="o">-</span><span class="n">v</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_matrix_space</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="SimilaritySurface.edge_transformation"><a class="viewcode-back" href="../../../geometry.html#flatsurf.geometry.similarity_surface.SimilaritySurface.edge_transformation">[docs]</a>    <span class="k">def</span> <span class="nf">edge_transformation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
@@ -496,23 +496,23 @@
 <span class="sd">            sage: g((2,-2))</span>
 <span class="sd">            (2, 0)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">G</span><span class="o">=</span><span class="n">SimilarityGroup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_ring</span><span class="p">())</span>
-        <span class="n">q</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">polygon</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-        <span class="n">a</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="n">vertex</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-        <span class="n">b</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="n">vertex</span><span class="p">(</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">SimilarityGroup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_ring</span><span class="p">())</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polygon</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">vertex</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">vertex</span><span class="p">(</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="c1"># This is the similarity carrying the origin to a and (1,0) to b:</span>
-        <span class="n">g</span><span class="o">=</span><span class="n">G</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">G</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-        <span class="n">pp</span><span class="p">,</span><span class="n">ee</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opposite_edge</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
-        <span class="n">qq</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">polygon</span><span class="p">(</span><span class="n">pp</span><span class="p">)</span>
+        <span class="n">pp</span><span class="p">,</span> <span class="n">ee</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opposite_edge</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">qq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polygon</span><span class="p">(</span><span class="n">pp</span><span class="p">)</span>
         <span class="c1"># Be careful here: opposite vertices are identified</span>
-        <span class="n">aa</span><span class="o">=</span><span class="n">qq</span><span class="o">.</span><span class="n">vertex</span><span class="p">(</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">bb</span><span class="o">=</span><span class="n">qq</span><span class="o">.</span><span class="n">vertex</span><span class="p">(</span><span class="n">ee</span><span class="p">)</span>
+        <span class="n">aa</span> <span class="o">=</span> <span class="n">qq</span><span class="o">.</span><span class="n">vertex</span><span class="p">(</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">bb</span> <span class="o">=</span> <span class="n">qq</span><span class="o">.</span><span class="n">vertex</span><span class="p">(</span><span class="n">ee</span><span class="p">)</span>
         <span class="c1"># This is the similarity carrying the origin to aa and (1,0) to bb:</span>
-        <span class="n">gg</span><span class="o">=</span><span class="n">G</span><span class="p">(</span><span class="n">bb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">aa</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">bb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">aa</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">aa</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">aa</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">gg</span> <span class="o">=</span> <span class="n">G</span><span class="p">(</span><span class="n">bb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">aa</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">aa</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">aa</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">aa</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
         <span class="c1"># This is the similarity carrying (a,b) to (aa,bb):</span>
-        <span class="k">return</span> <span class="n">gg</span><span class="o">/</span><span class="n">g</span></div>
+        <span class="k">return</span> <span class="n">gg</span> <span class="o">/</span> <span class="n">g</span></div>
 
 <div class="viewcode-block" id="SimilaritySurface.set_vertex_zero"><a class="viewcode-back" href="../../../geometry.html#flatsurf.geometry.similarity_surface.SimilaritySurface.set_vertex_zero">[docs]</a>    <span class="k">def</span> <span class="nf">set_vertex_zero</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
@@ -918,11 +918,11 @@
             <span class="c1"># Just test if the flip would be successful</span>
             <span class="n">p1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">polygon</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">p1</span><span class="o">.</span><span class="n">num_edges</span><span class="p">()</span><span class="o">==</span><span class="mi">3</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">false</span>
+                <span class="k">return</span> <span class="kc">False</span>
             <span class="n">l2</span><span class="p">,</span><span class="n">e2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opposite_edge</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span><span class="n">e1</span><span class="p">)</span>
             <span class="n">p2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polygon</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">p2</span><span class="o">.</span><span class="n">num_edges</span><span class="p">()</span><span class="o">==</span><span class="mi">3</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">false</span>
+                <span class="k">return</span> <span class="kc">False</span>
             <span class="n">sim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">edge_transformation</span><span class="p">(</span><span class="n">l2</span><span class="p">,</span><span class="n">e2</span><span class="p">)</span>
             <span class="n">hol</span> <span class="o">=</span> <span class="n">sim</span><span class="p">(</span> <span class="n">p2</span><span class="o">.</span><span class="n">vertex</span><span class="p">(</span> <span class="p">(</span><span class="n">e2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">%</span><span class="mi">3</span> <span class="p">)</span> <span class="o">-</span> <span class="n">p1</span><span class="o">.</span><span class="n">vertex</span><span class="p">((</span><span class="n">e1</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span>
             <span class="kn">from</span> <span class="nn">flatsurf.geometry.polygon</span> <span class="kn">import</span> <span class="n">wedge_product</span>
@@ -2408,59 +2408,7 @@
         <span class="k">for</span> <span class="n">edgepair</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">edge_iterator</span><span class="p">(</span><span class="n">gluings</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
             <span class="n">h</span> <span class="o">=</span> <span class="n">h</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="nb">hash</span><span class="p">(</span><span class="n">edgepair</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_hash</span><span class="o">=</span><span class="n">h</span>
-        <span class="k">return</span> <span class="n">h</span>
-
-<div class="viewcode-block" id="SimilaritySurface.erase_marked_points"><a class="viewcode-back" href="../../../geometry.html#flatsurf.geometry.similarity_surface.SimilaritySurface.erase_marked_points">[docs]</a>    <span class="k">def</span> <span class="nf">erase_marked_points</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Return an isometric or similar surface with a minimal number of regular</span>
-<span class="sd">        vertices of angle 2π.</span>
-
-<span class="sd">        EXAMPLES::</span>
-
-<span class="sd">            sage: import flatsurf</span>
-
-<span class="sd">            sage: G = SymmetricGroup(4)</span>
-<span class="sd">            sage: S = flatsurf.translation_surfaces.origami(G(&#39;(1,2,3,4)&#39;), G(&#39;(1,4,2,3)&#39;))</span>
-<span class="sd">            sage: S.stratum()</span>
-<span class="sd">            H_2(2, 0)</span>
-<span class="sd">            sage: S.erase_marked_points().stratum() # optional: pyflatsurf</span>
-<span class="sd">            H_2(2)</span>
-
-<span class="sd">            sage: for (a,b,c) in [(1,4,11), (1,4,15), (3,4,13)]: # optional: pyflatsurf</span>
-<span class="sd">            ....:     T = flatsurf.polygons.triangle(a,b,c)</span>
-<span class="sd">            ....:     S = flatsurf.similarity_surfaces.billiard(T)</span>
-<span class="sd">            ....:     S = S.minimal_cover(&quot;translation&quot;)</span>
-<span class="sd">            ....:     print(S.erase_marked_points().stratum())</span>
-<span class="sd">            H_6(10)</span>
-<span class="sd">            H_6(2^5)</span>
-<span class="sd">            H_8(12, 2)</span>
-
-<span class="sd">        TESTS:</span>
-
-<span class="sd">        Verify that https://github.com/flatsurf/flatsurf/issues/263 has been resolved::</span>
-
-<span class="sd">            sage: from flatsurf import EquiangularPolygons, similarity_surfaces</span>
-<span class="sd">            sage: E = EquiangularPolygons((10, 8, 3, 1, 1, 1))</span>
-<span class="sd">            sage: P = E((1, 1, 2, 4), normalized=True)</span>
-<span class="sd">            sage: B = similarity_surfaces.billiard(P, rational=True)</span>
-<span class="sd">            sage: S = B.minimal_cover(cover_type=&quot;translation&quot;)</span>
-<span class="sd">            sage: S = S.erase_marked_points() # optional: pyflatsurf</span>
-
-<span class="sd">        ::</span>
-
-<span class="sd">            sage: from flatsurf import EquiangularPolygons, similarity_surfaces</span>
-<span class="sd">            sage: E = EquiangularPolygons((10, 7, 2, 2, 2, 1))</span>
-<span class="sd">            sage: P = E((1, 1, 2, 3), normalized=True)</span>
-<span class="sd">            sage: B = similarity_surfaces.billiard(P, rational=True)</span>
-<span class="sd">            sage: S_mp = B.minimal_cover(cover_type=&quot;translation&quot;)</span>
-<span class="sd">            sage: S = S_mp.erase_marked_points() # optional: pyflatsurf</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">from</span> <span class="nn">.pyflatsurf_conversion</span> <span class="kn">import</span> <span class="n">from_pyflatsurf</span><span class="p">,</span> <span class="n">to_pyflatsurf</span>
-        <span class="n">S</span> <span class="o">=</span> <span class="n">to_pyflatsurf</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">S</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">eliminateMarkedPoints</span><span class="p">()</span><span class="o">.</span><span class="n">surface</span><span class="p">()</span>
-        <span class="n">S</span><span class="o">.</span><span class="n">delaunay</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">from_pyflatsurf</span><span class="p">(</span><span class="n">S</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">h</span></div>
 </pre></div>
 
             <div class="clearer"></div>
@@ -2473,12 +2421,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -2492,14 +2440,14 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">sage-flatsurf 0.4.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">sage-flatsurf 0.4.7 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">flatsurf.geometry.similarity_surface</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, Vincent Delecroix and Pat Hooper.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
     </div>
   </body>
 </html>
